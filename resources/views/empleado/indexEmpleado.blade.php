@@ -1,4 +1,4 @@
-@extends('templates.website')
+@extends('templates.empleado')
 
 @section('content')
 
@@ -14,16 +14,17 @@
 	</center>
 </section>
 
-<section id="section">
+<div id="section" class="container">
 	<center>
 		<div class="row">
+		 	<div class="col s12">
+		 		<img id="section" src="/imagenes/quejas2.jpg" alt="" class="circle responsive-img z-depth-2">
+			</div>
 			<div class="col s12">
-				<a href="/">
-					<img src="/imagenes/bannerppal.png" alt="" class="responsive-img">
-				</a>
+				<a href="/quejas" id="boton" class="waves-effect waves-light btn-large">QUEJAS</a>
 			</div>
 		</div>
 	</center>
-</section>
+</div>
 
 @stop

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/materialize.min.css"/>
 	<link rel="stylesheet" href="/css/app.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!--Para el alert {{}} Para que no de errors-->
+    <!--Para el alert - Para que no de errors-->
     <link rel="stylesheet" href="/css/sweetalert.css">
 </head>
 
@@ -19,12 +19,23 @@
 		    	<a href="/" class="brand-logo" style="margin-left: 20px">SoliciTEC  <i class="fa fa-file-text"></i></a>
 		    	<a href="/" data-activates="mobile-demo" class="button-collapse" style="margin-left: 20px"><i class="fa fa-bars"></i></a>
 		      	<ul id="nav-mobile" class="right hide-on-med-and-down">
+		      		<li><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
+                	<li><a href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
+                	<li><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
+                	<li><a href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
                 	<li><a href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                 	<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>
+                    <li><a href="#!">{{ session()->get('jefe')->nombre }}</a></li>
+                    <li><a href="/logoutJef"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
 			    <ul class="side-nav" id="mobile-demo">
+			        <li><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
+                	<li><a href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
+                	<li><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
+                	<li><a href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
                 	<li><a href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                 	<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>
+                    <li><a href="/logoutJef"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
 		    </div>
 		</nav>
@@ -44,6 +55,10 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Enlaces</h5>
                 <ul>
+                	<li><a class="grey-text text-lighten-3" href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
+                	<li><a class="grey-text text-lighten-3" href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
+                	<li><a class="grey-text text-lighten-3" href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
+                	<li><a class="grey-text text-lighten-3" href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>
                 </ul>
