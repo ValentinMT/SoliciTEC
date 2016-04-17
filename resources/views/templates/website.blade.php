@@ -76,7 +76,8 @@
 	<script src="/js/app.js"></script>
     <!--Para el alert-->    
     <script src="/js/sweetalert.min.js"></script>
-    @include('sweet::alert')<!-- Para incluir la clase alert-->
+    @include('sweet::alert') <!--Para incluir la clase alert-->
+    <!--http://www.askjong.com/howto/notify-like-a-boss-with-sweet-alert-and-laravel-->
 </body>
 
 </html>

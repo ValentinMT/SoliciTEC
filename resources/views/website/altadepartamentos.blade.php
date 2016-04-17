@@ -8,6 +8,7 @@
 		 	<div class="col s12">
 				</br>
 				<form id="altadepartamento" action="/departamentos" method="POST" class="responsive-form">
+					{{csrf_field()}}
 					<div class="col s12">
 						<img src="/imagenes/dep.png" class="responsive-img">
 					</div>
