@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -24,7 +26,7 @@
                 	<li><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
                 	<li><a href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
-                	<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>
+                	<!--<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>-->
                     <li><a href="#!">{{ session()->get('administrador')->nombre }}</a></li>
                     <li><a href="/logoutAdm"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
@@ -34,7 +36,7 @@
                 	<li><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
                 	<li><a href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
-                	<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>
+                	<!--<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>-->
                     <li><a href="/logoutAdm"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
 		    </div>
@@ -60,7 +62,7 @@
                 	<li><a class="grey-text text-lighten-3" href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
-                	<li><a class="grey-text text-lighten-3" href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>
+                	<!--<li><a class="grey-text text-lighten-3" href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>-->
                 </ul>
             </div>
         </div>

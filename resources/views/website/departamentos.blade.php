@@ -48,34 +48,33 @@
 			            	<th data-field="nombre">Nombre (s)</th>
 			            	<th data-field="extension">Extesión</th>
 			            	<th data-field="eificio">Edificio</th>
+			            	<th data-field="editar">Editar</th>
+			            	<th data-field="eliminar">Eliminar</th>
 			        	</tr>
 			        </thead>
-
 			        <tbody>
+			        	@foreach($departamentos as $departamentos)
 			        	<tr>
-			        		<td>1</td>
-			        		<td>Sistemas</td>
-			            	<td>345</td>
-			            	<td>A</td>
+			        		<td>{{ $departamentos->clave }}</td>
+			        		<td>{{ $departamentos->nombre }}</td>
+			            	<td>{{ $departamentos->extension }}</td>
+			            	<td>{{ $departamentos->edificio }}</td>
+			            	<td>
+			            		<center>
+			            			<a href="/editarDepto/{{$departamentos->clave}}">
+			            				<i class="fa fa-pencil-square-o fa-2x" style="color:#2e7d32;" aria-hidden="true"></i>
+			            			</a>
+			            		</center>
+			            	</td>
+			            	<td>
+			            		<center>
+			            			<a href="/eliminarDepto/delete/{{$departamentos->clave}}">
+			            				<i class="fa fa-trash fa-2x" style="color:#2e7d32;" aria-hidden="true"></i>
+			            			</a>
+			            		</center>
+			            	</td>
 			        	</tr>
-			        	<tr>
-			        		<td>2</td>
-			        		<td>Administración</td>
-			            	<td>445</td>
-			            	<td>B</td>
-			        	</tr>
-			        	<tr>
-			        		<td>3</td>
-			        		<td>Contabilidad</td>
-			            	<td>365</td>
-			            	<td>C</td>
-			        	</tr>
-			        	<tr>
-			        		<td>4</td>
-			        		<td>Industrial</td>
-			            	<td>333</td>
-			            	<td>D</td>
-			        	</tr>
+			        	@endforeach
 			        </tbody>
 			    </table>
 			    <img src="/imagenes/Sombra2.png" class="responsive-img">

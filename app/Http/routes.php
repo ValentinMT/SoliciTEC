@@ -16,9 +16,9 @@ Route::get('/empleados', function() {
 	return view('website.empleados');
 });
 
-Route::get('/departamentos', function() {
+/*Route::get('/departamentos', function() {
 	return view('website.departamentos');
-});
+});*/
 
 Route::get('/acerca', function() {
 	return view('website.acerca');
@@ -39,8 +39,6 @@ Route::get('/altaempleados', function() {
 Route::get('/altadepartamentos', function() {
 	return view('website.altadepartamentos');
 });
-
-Route::post('/departamentos', 'DepartamentosController@store');
 
 Route::post('/empleados', 'EmpleadosController@store');
 
@@ -126,3 +124,14 @@ Route::group(['middleware' => 'emp'], function() {
     get('/logoutEmp', 'Emp_UserController@logout');
 	//https://styde.net/sistema-de-autenticacion-de-usuarios-en-laravel/
 });
+
+post('/insertarDepto', 'DepartamentosController@store');
+
+get('/departamentos', 'DepartamentosController@index');
+
+get('/editarDepto/{clave}', 'DepartamentosController@edit');
+
+post('/actualizarDepto/update/{clave}', 'DepartamentosController@update');
+
+get('/eliminarDepto/delete/{clave}', 'DepartamentosController@destroy');
+
