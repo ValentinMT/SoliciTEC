@@ -1,4 +1,4 @@
-@extends('templates.website')
+@extends('templates.administrador')
 
 @section('content')
 
@@ -13,12 +13,12 @@
 						<img src="/imagenes/dep.png" class="responsive-img">
 					</div>
 					<div class="col s12">
-						<label style="font-size: 27px; color: #43a047;"><b>ALTA DE DEPARTAMENTOS</b></label>
+						<label style="font-size: 27px; color: #43a047;"><b>AGREGA DEPARTAMENTO</b></label>
 					</div>
 					<img src="/imagenes/Sombra3.png" class="responsive-img">
 					<div class="input-field col s12">
 						<input type="text" class="validate" name="nombre" required>
-						<label id="texto"><i class="fa fa-user"></i>  Nombre: </label>
+						<label id="texto"><i class="fa fa-home"></i>  Nombre: </label>
 				  	</div>
 				  	<div class="input-field col s6">
 						<input type="text" class="validate" name="extension">

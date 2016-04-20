@@ -1,4 +1,4 @@
-@extends('templates.website')
+@extends('templates.administrador')
 
 @section('content')
 
@@ -23,7 +23,8 @@
 				</div>
 				<div class="col s6" align=right>
 					<a href="/altadepartamentos" id="boton3" class="waves-effect waves-light btn-large">
-						<i class="fa fa-user-plus"></i>  AGREGAR</a>
+						<i class="fa fa-plus" aria-hidden="true"></i>  AGREGAR
+					</a>
 				</div>
 			</div>
 			<img src="/imagenes/Sombra.png" class="responsive-img">

@@ -36,10 +36,6 @@ Route::get('/altaempleados', function() {
 	return view('website.altaempleados');
 });
 
-Route::get('/altadepartamentos', function() {
-	return view('website.altadepartamentos');
-});
-
 Route::post('/empleados', 'EmpleadosController@store');
 
 get('/usuario', function(){
@@ -100,6 +96,14 @@ get('/administrador/indexAdministrador', 'Admin_UserController@index');
 Route::group(['middleware' => 'admin'], function() { 
     get('/administrador', 'Admin_UserController@index');
     get('/logoutAdm', 'Admin_UserController@logout');
+    post('/insertarDepto', 'DepartamentosController@store');
+    get('/departamentos', 'DepartamentosController@index');
+    get('/editarDepto/{clave}', 'DepartamentosController@edit');
+    post('/actualizarDepto/update/{clave}', 'DepartamentosController@update');
+    get('/eliminarDepto/delete/{clave}', 'DepartamentosController@destroy');
+    Route::get('/altadepartamentos', function() {
+    return view('website.altadepartamentos');
+});
 });
 
 /*Route::get('/indexJefe', function() {
@@ -124,14 +128,3 @@ Route::group(['middleware' => 'emp'], function() {
     get('/logoutEmp', 'Emp_UserController@logout');
 	//https://styde.net/sistema-de-autenticacion-de-usuarios-en-laravel/
 });
-
-post('/insertarDepto', 'DepartamentosController@store');
-
-get('/departamentos', 'DepartamentosController@index');
-
-get('/editarDepto/{clave}', 'DepartamentosController@edit');
-
-post('/actualizarDepto/update/{clave}', 'DepartamentosController@update');
-
-get('/eliminarDepto/delete/{clave}', 'DepartamentosController@destroy');
-

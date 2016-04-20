@@ -1,4 +1,4 @@
-@extends('templates.website')
+@extends('templates.administrador')
 
 @section('content')
 
@@ -18,7 +18,7 @@
 					<img src="/imagenes/Sombra3.png" class="responsive-img">
 					<div class="input-field col s12">
 						<input type="text" class="validate" name="nombre" required value="{{$departamentos->nombre}}">
-						<label id="texto"><i class="fa fa-user"></i>  Nombre: </label>
+						<label id="texto"><i class="fa fa-home"></i>  Nombre: </label>
 				  	</div>
 				  	<div class="input-field col s6">
 						<input type="text" class="validate" name="extension" value="{{$departamentos->extension}}">
