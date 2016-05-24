@@ -6,7 +6,10 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>SoliciTEC</title>
+	<meta id="token" name="token" value="{{ csrf_token() }}"> <!--Token de VUEJS-->
+    <title>SoliciTEC</title>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
+    <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/materialize.min.css"/>
 	<link rel="stylesheet" href="/css/app.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -77,7 +80,9 @@
     </footer>
 
 	<script src="/js/jquery-2.2.1.min.js"></script>
-	<script src="/js/materialize.min.js"></script>
+	<script src="/js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.0/vue-resource.min.js"></script>
+    <script src="/js/materialize.min.js"></script>
 	<script src="/js/app.js"></script>
     <!--Para el alert-->    
     <script src="/js/sweetalert.min.js"></script>

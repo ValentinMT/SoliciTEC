@@ -102,8 +102,8 @@ Route::group(['middleware' => 'admin'], function() {
     post('/actualizarDepto/update/{clave}', 'DepartamentosController@update');
     get('/eliminarDepto/delete/{clave}', 'DepartamentosController@destroy');
     Route::get('/altadepartamentos', function() {
-    return view('website.altadepartamentos');
-});
+        return view('website.altadepartamentos');
+    });
 });
 
 /*Route::get('/indexJefe', function() {

@@ -1,14 +1,14 @@
 //alert("Iniciando");
 
-$( document ).ready(function(){})
-$(".button-collapse").sideNav();
-
-$('.slider').slider();
-
- $('.fixed-action-btn').openFAB();
-
-  $(document).ready(function() {
+$(document).ready(function() {
     $('select').material_select();
-  });
 
- $('select').material_select('destroy');
+    $(".button-collapse").sideNav();
+
+	$('.slider').slider();
+
+	$('.fixed-action-btn').openFAB();
+
+});
+
+	//$('select').material_select('destroy');
