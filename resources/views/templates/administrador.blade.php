@@ -6,12 +6,25 @@
 
 <head>
 	<meta charset="UTF-8">
+    <?php $route = Route::current()->uri(); ?>
+    @if($route == 'administrador/indexAdministrador') <?php $route = 'Panel Administrador' ?> @endif
+    @if($route == 'insertarDepto') <?php $route = 'Departamentos' ?> @endif
+    @if($route == 'departamentos') <?php $route = 'Departamentos' ?> @endif
+    @if($route == 'altadepartamentos') <?php $route = 'Alta Departamentos' ?> @endif
+    @if($route == 'editarDepto/{clave}') <?php $route = 'Editar Departamento' ?> @endif
+    @if($route == 'insertarEmp') <?php $route = 'Empleados' ?> @endif
+    @if($route == 'empleados') <?php $route = 'Empleados' ?> @endif
+    @if($route == 'altaempleados') <?php $route = 'Alta Empleados' ?> @endif
+    @if($route == 'editarEmp/{clave}') <?php $route = 'Editar Empleado' ?> @endif
+    @if($route == 'quejas') <?php $route = 'Quejas' ?> @endif
+    @if($route == 'acerca/administrador') <?php $route = 'Acerca' ?> @endif
+    <title>{{ $route }}</title>
+    <?php $route2 = Route::current()->uri(); ?>
 	<meta id="token" name="token" value="{{ csrf_token() }}"> <!--Token de VUEJS-->
-    <title>SoliciTEC</title>
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
     <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/materialize.min.css"/>
-	<link rel="stylesheet" href="/css/app.css"/>
+	<link rel="stylesheet" href="/css/appSoliciTEC2.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!--Para el alert - Para que no de errors-->
     <link rel="stylesheet" href="/css/sweetalert.css">
@@ -21,24 +34,24 @@
 	<header>
 		<nav class="green darken-1">
 		    <div class="nav-wrapper">
-		    	<a href="/" class="brand-logo" style="margin-left: 20px">SoliciTEC  <i class="fa fa-file-text"></i></a>
-		    	<a href="/" data-activates="mobile-demo" class="button-collapse" style="margin-left: 20px"><i class="fa fa-bars"></i></a>
+		    	<a href="/administrador/indexAdministrador" class="brand-logo" style="margin-left: 20px">SoliciTEC  <i class="fa fa-file-text"></i></a>
+		    	<a href="/administrador/indexAdministrador" data-activates="mobile-demo" class="button-collapse" style="margin-left: 20px"><i class="fa fa-bars"></i></a>
 		      	<ul id="nav-mobile" class="right hide-on-med-and-down">
-		      		<li><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
-                	<li><a href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
-                	<li><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
-                	<li><a href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
-                	<li><a href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
+		      		<li class=@if($route2 == 'solicitudes') {{'opcion-activa'}} @endif><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
+                	<li class=@if($route2 == 'quejas') {{'opcion-activa'}} @endif><a href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
+                	<li class=@if($route2 == 'empleados') {{'opcion-activa'}} @endif><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
+                	<li class=@if($route2 == 'departamentos') {{'opcion-activa'}} @endif><a href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
+                	<li class=@if($route2 == 'acerca/administrador') {{'opcion-activa'}} @endif><a href="/acerca/administrador"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                 	<!--<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>-->
                     <li><a href="#!">{{ session()->get('administrador')->nombre }}</a></li>
-                    <li><a href="/logoutAdm"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
+                    <li><a href="/logoutAdm" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
 			    <ul class="side-nav" id="mobile-demo">
 			        <li><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
                 	<li><a href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
                 	<li><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
-                	<li><a href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
+                	<li><a href="/acerca/administrador"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                 	<!--<li><a href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>-->
                     <li><a href="/logoutAdm"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
@@ -64,7 +77,7 @@
                 	<li><a class="grey-text text-lighten-3" href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/departamentos"><i class="fa fa-home"></i>  Departamentos</a></li>
-                	<li><a class="grey-text text-lighten-3" href="/acerca"><i class="fa fa-question-circle"></i>  Acerca</a></li>
+                	<li><a class="grey-text text-lighten-3" href="/acerca/administrador"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                 	<!--<li><a class="grey-text text-lighten-3" href="/acceder"><i class="fa fa-sign-in"></i>  Acceder</a></li>-->
                 </ul>
             </div>
@@ -88,6 +101,7 @@
     <script src="/js/sweetalert.min.js"></script>
     @include('sweet::alert') <!--Para incluir la clase alert-->
     <!--http://www.askjong.com/howto/notify-like-a-boss-with-sweet-alert-and-laravel-->
+    @yield('scripts')
 </body>
 
 </html>

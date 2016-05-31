@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Alert;
+
+use Redirect;
+
+use App\InsertarEmpModel;
+
 class EmpleadosController extends Controller
 {
     /**
@@ -15,10 +21,26 @@ class EmpleadosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function index()
+    {
+        $empleados = InsertarEmpModel::all();
+        return view('administrador.empleados', compact('empleados'));
+    }
+
+    public function show()
+    {
+        //return InsertarEmpModel::all();
+        $empleados=\DB::table('empleado as E')
+            ->join('departamento as D', 'E.departamento_clave', '=', 'D.clave')
+            ->select('E.clave','E.nombre as NombreE', 'E.tipo', 'E.imss', 'E.RFC', 'E.direccion', 'E.celular', 'E.email', 'D.nombre as NombreD')
+            ->get();
+        return $empleados;
+    }
+
     public function store(Request $request) {
-        $departamento=\DB::table('departamento')->insert([
-            'tipo' => $request->tipo,
+        $empleado=\DB::table('empleado')->insert([
             'nombre'=>  $request->nombre,
+            'tipo' => $request->tipo,
             'imss'=> $request->imss,
             'RFC'=> $request->RFC,
             'direccion'=> $request->direccion,
@@ -30,82 +52,32 @@ class EmpleadosController extends Controller
             'departamento_clave'=> $request->departamento_clave
             ]);
 
-        if($departamento==1){
+        if($empleado==1){
             Alert::success('¡INSERCIÓN CORRECTA!')->persistent("Cerrar");
-            return view("website.empleados");
+            //return view("administrador.empleados");
+            return Redirect::to('/empleados');
         } else  {
             Alert::error('ERROR DE INSERCIÓN, INTENTELO NUEVAMENTE', 'Oops!')->persistent("Cerrar");
         }   
     }
 
-    public function index()
-    {
-        //
+    public function edit($clave) {
+        $empleados = InsertarEmpModel::find($clave);
+        return view('administrador.modificarempleados', compact('empleados'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function update($clave, Request $request) {
+        $empleados = InsertarEmpModel::find($clave);
+        $empleados->fill($request->all());
+        $empleados->save();
+        Alert::success('¡MODIFICACIÓN CORRECTA!')->persistent("Cerrar");
+        return Redirect::to('/empleados');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function destroy($clave) {
+        $empleados = InsertarEmpModel::find($clave);
+        $empleados->delete();
+        Alert::success('¡ELIMINACIÓN CORRECTA!')->persistent("Cerrar");
+        return Redirect::to('/empleados');
     }
 }

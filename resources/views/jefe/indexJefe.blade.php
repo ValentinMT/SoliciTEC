@@ -27,7 +27,7 @@
 			</div>
 			<div class="col s12 l4">
 				<img id="section" src="/imagenes/empleados.jpg" alt="" class="circle responsive-img z-depth-2">
-				<a href="/empleados" id="boton" class="waves-effect waves-light btn-large">EMPLEADOS</a>
+				<a href="/jefe/empleados" id="boton" class="waves-effect waves-light btn-large">EMPLEADOS</a>
 			</div>
 		</div>
 	</center>

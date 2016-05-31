@@ -6,7 +6,7 @@
 	<center>
 		<div class="row">
 			<div class="col s12">
-				<img src="/imagenes/empleados-banner.jpg" alt="" class="responsive-img">
+				<img src="/imagenes/departamentos-banner.jpg" alt="" class="responsive-img">
 			</div>
 		</div>
 	</center>
@@ -16,21 +16,23 @@
 	<center>
 		<div class="row">
 			<div class="col s12">
-				<div class="col s6" align=left>
+				<div class="col s6" align=right>
+					<h6 id="titulos1">ADMINISTRACIÓN DE</h6>
 					<h4 id="titulos">
-						EMPLEADOS
+						DEPARTAMENTOS
 					</h4>
 				</div>
 				<div class="col s6" align=right>
-					<a href="/altaempleados" id="boton3" class="waves-effect waves-light btn-large">
-						<i class="fa fa-user-plus"></i>  AGREGAR</a>
+					<a href="/altadepartamentos" id="boton3" class="waves-effect waves-light btn-large">
+						<i class="fa fa-plus" aria-hidden="true"></i>  AGREGAR
+					</a>
 				</div>
 			</div>
 			<img src="/imagenes/Sombra.png" class="responsive-img">
 			<div class="col s12" align=left style="margin-left: 14px">
-				<label id="texto">Buscar por clave de empleado: </label>
+				<label id="texto">Buscar por extensión: </label>
 				<input id="buscador" type="text" class="validate">
-				<label><a href="/empleados" id="texto"><i class="fa fa-search"></i> Buscar</a></label>
+				<label><a href="/departamentos" id="texto"><i class="fa fa-search"></i> Buscar</a></label>
 			</div>
 		</div>
 	</center>
@@ -44,31 +46,20 @@
 				<table class="highlight centered responsive-table">
 			        <thead>
 			        	<tr>
+			            	<th data-field="id">Clave</th>
 			            	<th data-field="nombre">Nombre</th>
-			            	<th data-field="tipo">Tipo</th>
-			            	<th data-field="imss">IMSS</th>
-			            	<th data-field="RFC">RFC</th>
-			            	<th data-field="direccion">Dirección</th>
-			            	<th data-field="telefono">Teléfono</th>
-			            	<th data-field="celular">Celular</th>
-			            	<th data-field="email">E-mail</th>
-			            	<th data-field="fechaNacimiento">Fecha de nacimiento</th>
-			            	<th data-field="departamento_clave">Departamento</th>
+			            	<th data-field="extension">Extensión</th>
+			            	<th data-field="eificio">Edificio</th>
+			            	<th data-field="editar">Editar</th>
+			            	<th data-field="eliminar">Eliminar</th>
 			        	</tr>
 			        </thead>
-
-			        <tbody v-for="empleado in empleados">
+			        <tbody v-for="departamento in departamentos">
 			        	<tr>
-			        		<td>@{{ empleado.nombre }}</td>
-			        		<td>@{{ empleado.tipo }}</td>
-			            	<td>@{{ empleado.imss }}</td>
-			            	<td>@{{ empleado.RFC }}</td>
-			            	<td>@{{ empleado.direccion }}</td>
-			            	<td>@{{ empleado.telefono }}</td>
-			            	<td>@{{ empleado.celular }}</td>
-			            	<td>@{{ empleado.email }}</td>
-			            	<td>@{{ empleado.fechaNacimiento }}</td>
-			            	<td>@{{ empleado.departamento_clave }}</td>
+			        		<td>@{{ departamento.clave }}</td>
+			        		<td>@{{ departamento.nombre }}</td>
+			            	<td>@{{ departamento.extension }}</td>
+			            	<td>@{{ departamento.edificio }}</td>
 			            	<td>
 			            		<center>
 			            			<a href="/editarDepto/@{{departamento.clave}}">
@@ -101,16 +92,16 @@
 		//Atributos.
 		el: 'body', //Ambiente de trabajo de Vue.
 		data: {
-			empleados: [],
+			departamentos: [],
 		},
 		// Metodos
 		ready: function() {
-			this.getEmpleados();
+			this.getDepartamentos();
 		},
 		methods:{
-			getEmpleados: function(){
-				this.$http.get('/administrador/empleados').then(function(response){
-					this.$set('empleados', response.data);
+			getDepartamentos: function(){
+				this.$http.get('/administrador/departamentos').then(function(response){
+					this.$set('departamentos', response.data);
 				});
 			},
 		}

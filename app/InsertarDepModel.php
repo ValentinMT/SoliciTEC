@@ -8,7 +8,9 @@ class InsertarDepModel extends Model
 {
     protected $table ="departamento";
 
+    protected $primaryKey = 'clave';
+
     protected $fillable = ['nombre','extension','edificio',]; //fillable <-- Para indicarle que campos quieres llenar.
 
-    protected $primaryKey = 'clave';
+    public $timestamps = false;
 }

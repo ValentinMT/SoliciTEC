@@ -22,14 +22,14 @@ class LoginController extends Controller
             //Usuario administrador.
             $tipo_usuario = Auth::user()->tipo; //Datos del usuario (tipo).
             if($tipo_usuario == 1){
-                return redirect('/administrador');
+                return redirect('/administrador/indexAdministrador');
             } else {
                 //Usuario jefe.
                 if($tipo_usuario == 2) {
-                    return redirect('/jefe');
+                    return redirect('/jefe/indexJefe');
                 } else {
                     //Usuario empleado.
-                    return redirect('/empleado');
+                    return redirect('/empleado/indexEmpleado');
                 }
                 
             }
@@ -46,15 +46,15 @@ class LoginController extends Controller
             //dd($tipo_usuario);
             if($tipo_usuario == 1){
                 $request->session()->put('administrador', $usuario);
-                return redirect('/administrador');
+                return redirect('/administrador/indexAdministrador');
             } else {
                 if($tipo_usuario == 2){
                     $request->session()->put('jefe', $usuario);
-                    return redirect('/jefe');
+                    return redirect('/jefe/indexJefe');
                 } else {
                     //Usuario cliente.
                     $request->session()->put('empleado', $usuario);
-                    return redirect('/empleado');
+                    return redirect('/empleado/indexEmpleado');
                 }
             } 
         }

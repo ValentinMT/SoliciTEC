@@ -16,7 +16,12 @@ class DepartamentosController extends Controller
 {
     public function index() {
         $departamentos = InsertarDepModel::all();
-        return view('website.departamentos', compact('departamentos'));
+        return view('administrador.departamentos', compact('departamentos'));
+    }
+
+    public function show()
+    {
+        return InsertarDepModel::all();
     }
 
     public function store(Request $request) {
@@ -27,17 +32,19 @@ class DepartamentosController extends Controller
     		'edificio'=>$request->edificio,
     		]);
         */
+        //return InsertarDepModel::create($request->all());
         if(InsertarDepModel::create($request->all())){
 	    	Alert::success('¡INSERCIÓN CORRECTA!')->persistent("Cerrar");
 	    	return Redirect::to('/departamentos');
+            //return view("administrador.departamentos");
     	} else  {
     		Alert::error('ERROR DE INSERCIÓN, INTENTELO NUEVAMENTE', 'Oops!')->persistent("Cerrar");
-    	}  
+    	}
     }
 
     public function edit($clave) {
         $departamentos = InsertarDepModel::find($clave);
-        return view('website.modificardepartamentos', compact('departamentos'));
+        return view('administrador.modificardepartamentos', compact('departamentos'));
     }
 
     public function update($clave, Request $request) {
@@ -46,6 +53,7 @@ class DepartamentosController extends Controller
         $departamentos->save();
         Alert::success('¡MODIFICACIÓN CORRECTA!')->persistent("Cerrar");
         return Redirect::to('/departamentos');
+        //return view("administrador.departamentos");
     }
 
     public function destroy($clave) {
@@ -53,5 +61,6 @@ class DepartamentosController extends Controller
         $departamentos->delete();
         Alert::success('¡ELIMINACIÓN CORRECTA!')->persistent("Cerrar");
         return Redirect::to('/departamentos');
+        //return view("administrador.departamentos");
     }
 }
