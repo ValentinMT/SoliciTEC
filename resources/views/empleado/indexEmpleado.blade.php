@@ -18,10 +18,10 @@
 	<center>
 		<div class="row">
 		 	<div class="col s12">
-		 		<img id="section" src="/imagenes/quejas2.jpg" alt="" class="circle responsive-img z-depth-2">
+		 		<a href="/empleados/quejas"><img id="section" src="/imagenes/quejas2.jpg" alt="" class="circle responsive-img z-depth-2"></a>
 			</div>
 			<div class="col s12">
-				<a href="/quejas" id="boton" class="waves-effect waves-light btn-large">QUEJAS</a>
+				<a href="/empleados/quejas" id="boton" class="waves-effect waves-light btn-large">REALIZAR QUEJA</a>
 			</div>
 		</div>
 	</center>

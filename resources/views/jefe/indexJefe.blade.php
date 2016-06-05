@@ -18,15 +18,15 @@
 	<center>
 		<div class="row">
 			<div class="col s12 l4">
-				<img id="section" src="/imagenes/solicitudes.jpg" alt="" class="circle responsive-img z-depth-2">
+				<a href="/solicitudes"><img id="section" src="/imagenes/solicitudes.jpg" alt="" class="circle responsive-img z-depth-2"></a>
 				<a href="/solicitudes" id="boton" class="waves-effect waves-light btn-large">SOLICITUDES</a>
 			</div>
 			<div class="col s12 l4">
-				<img id="section" src="/imagenes/quejas.jpg" alt="" class="circle responsive-img z-depth-2">
-				<a href="/quejas" id="boton" class="waves-effect waves-light btn-large">QUEJAS</a>
+				<a href="/quejasJefe"><img id="section" src="/imagenes/quejas.jpg" alt="" class="circle responsive-img z-depth-2"></a>
+				<a href="/quejasJefe" id="boton" class="waves-effect waves-light btn-large">QUEJAS</a>
 			</div>
 			<div class="col s12 l4">
-				<img id="section" src="/imagenes/empleados.jpg" alt="" class="circle responsive-img z-depth-2">
+				<a href="/jefe/empleados"><img id="section" src="/imagenes/empleados.jpg" alt="" class="circle responsive-img z-depth-2"></a>
 				<a href="/jefe/empleados" id="boton" class="waves-effect waves-light btn-large">EMPLEADOS</a>
 			</div>
 		</div>

@@ -8,15 +8,15 @@
 	<meta charset="UTF-8">
     <?php $route = Route::current()->uri(); ?>
     @if($route == 'administrador/indexAdministrador') <?php $route = 'Panel Administrador' ?> @endif
-    @if($route == 'insertarDepto') <?php $route = 'Departamentos' ?> @endif
-    @if($route == 'departamentos') <?php $route = 'Departamentos' ?> @endif
+    @if($route == 'insertarDepto') <?php $route = 'Admon. Departamentos' ?> @endif
+    @if($route == 'departamentos') <?php $route = 'Admon. Departamentos' ?> @endif
     @if($route == 'altadepartamentos') <?php $route = 'Alta Departamentos' ?> @endif
     @if($route == 'editarDepto/{clave}') <?php $route = 'Editar Departamento' ?> @endif
-    @if($route == 'insertarEmp') <?php $route = 'Empleados' ?> @endif
-    @if($route == 'empleados') <?php $route = 'Empleados' ?> @endif
+    @if($route == 'insertarEmp') <?php $route = 'Admon. Empleados' ?> @endif
+    @if($route == 'empleados') <?php $route = 'Admon. Empleados' ?> @endif
     @if($route == 'altaempleados') <?php $route = 'Alta Empleados' ?> @endif
     @if($route == 'editarEmp/{clave}') <?php $route = 'Editar Empleado' ?> @endif
-    @if($route == 'quejas') <?php $route = 'Quejas' ?> @endif
+    @if($route == 'quejas') <?php $route = 'Admon. Quejas' ?> @endif
     @if($route == 'acerca/administrador') <?php $route = 'Acerca' ?> @endif
     <title>{{ $route }}</title>
     <?php $route2 = Route::current()->uri(); ?>
@@ -24,7 +24,7 @@
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
     <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/materialize.min.css"/>
-	<link rel="stylesheet" href="/css/appSoliciTEC2.css"/>
+	<link rel="stylesheet" href="/css/appSoliciTEC3.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!--Para el alert - Para que no de errors-->
     <link rel="stylesheet" href="/css/sweetalert.css">

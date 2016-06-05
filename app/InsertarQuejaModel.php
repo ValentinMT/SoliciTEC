@@ -10,7 +10,7 @@ class InsertarQuejaModel extends Model
 
     protected $primaryKey = 'folio';
 
-    protected $fillable = ['fechaHora','imagen','descripcion','empleado_clave','empleado_departamento_clave','departamento_clave',]; //fillable <-- Para indicarle que campos quieres llenar.
+    protected $fillable = ['fechaHora','imagen','descripcion','empleado_clave','empleado_departamento_clave','departamento_clave','problema',]; //fillable <-- Para indicarle que campos quieres llenar.
 
     public $timestamps = false;
 }

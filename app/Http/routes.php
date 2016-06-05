@@ -8,12 +8,13 @@ Route::get('/solicitudes', function() {
 	return view('website.solicitudes');
 });
 
-Route::get('/quejas', function() {
-	return view('website.quejas');
-});
 
 Route::get('/acerca', function() {
     return view('website.acerca');
+});
+
+Route::get('/quejas', function() {
+    return view('administrador.quejas');
 });
 
 /*Route::get('/departamentos', function() {
@@ -103,7 +104,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/administrador/departamentos', 'DepartamentosController@show');
 
     Route::post('/insertarEmp', 'EmpleadosController@store');
-    Route::get('/empleados', 'EmpleadosController@index');
+    Route::get('/empleados', 'EmpleadosController@show');
     Route::get('/editarEmp/{clave}', 'EmpleadosController@edit');
     Route::post('/actualizarEmp/update/{clave}', 'EmpleadosController@update');
     Route::get('/eliminarEmp/delete/{clave}', 'EmpleadosController@destroy');
@@ -112,9 +113,12 @@ Route::group(['middleware' => 'admin'], function() {
     });
     Route::get('/administrador/empleados', 'EmpleadosController@show');
 
-    Route::get('/quejas', 'QuejasController@index');
-    Route::get('/administrador/quejas', 'QuejasController@show');
+    Route::get('/quejas', 'QuejasController@show');
+    //Route::get('/administrador/quejas', 'QuejasController@show');
     Route::get('/eliminarQueja/delete/{folio}', 'QuejasController@destroy');
+
+    Route::get('/detalle-queja', 'QuejasController@detalle');
+
 });
 
 /*Route::get('/indexJefe', function() {
@@ -130,8 +134,11 @@ Route::group(['middleware' => 'jef'], function() {
     });
 
     Route::get('/jefe/empleados', 'JefeEmpleadosController@index');
-
     Route::get('/jefe/empleados/mostrar', 'JefeEmpleadosController@show');
+
+    Route::get('/quejasJefe', 'QuejasController@quejasJefe');
+    Route::get('/jefe/quejas2', 'QuejasController@mostrarQuejasRealizadas');
+    Route::get('/jefe/quejas3', 'QuejasController@mostrarQuejasRecibidas');
 });
 
 /*Route::get('/indexEmpleado', function() {
@@ -145,5 +152,22 @@ Route::group(['middleware' => 'emp'], function() {
     Route::get('/acerca/empleado', function() {
         return view('empleado.acerca');
     });
+
+    Route::get('/empleados/quejas', 'QuejasController@quejasEmp');
+    Route::post('/insertarQueja', 'QuejasController@store');
+
+    /*
+    Route::get('/depNombre', function() {
+        $depClave = session()->get('empleado')->departamento_clave;
+        
+        $empleados=\DB::table('empleado as E')
+            ->join('departamento as D', 'E.departamento_clave', '=', 'D.clave')
+            ->distinct()
+            ->select('D.nombre as empleado_departamento_clave')
+            ->where('E.departamento_clave', '=', $depClave)
+            ->get();
+        return $empleados;
+    });
+    */
 	//https://styde.net/sistema-de-autenticacion-de-usuarios-en-laravel/
 });

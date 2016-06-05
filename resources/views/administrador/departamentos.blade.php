@@ -29,11 +29,11 @@
 				</div>
 			</div>
 			<img src="/imagenes/Sombra.png" class="responsive-img">
-			<div class="col s12" align=left style="margin-left: 14px">
+			<!--<div class="col s12" align=left style="margin-left: 14px">
 				<label id="texto">Buscar por extensión: </label>
 				<input id="buscador" type="text" class="validate">
 				<label><a href="/departamentos" id="texto"><i class="fa fa-search"></i> Buscar</a></label>
-			</div>
+			</div>-->
 		</div>
 	</center>
 </section>
@@ -42,6 +42,11 @@
 	<center>
 		<div class="row">
 			<div class="col s12">
+				<label style="font-size: 25px; color: #43a047;">
+					<b>
+						TOTAL DE DEPARTAMENTOS (@{{departamentos.length}})
+					</b>
+				</label>
 				<img src="/imagenes/Sombra2.png" class="responsive-img">
 				<table class="highlight centered responsive-table">
 			        <thead>
@@ -87,24 +92,24 @@
 
 @section('scripts')
 	<script>
-	Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector("#token").getAttribute('value');
-	new Vue({
-		//Atributos.
-		el: 'body', //Ambiente de trabajo de Vue.
-		data: {
-			departamentos: [],
-		},
-		// Metodos
-		ready: function() {
-			this.getDepartamentos();
-		},
-		methods:{
-			getDepartamentos: function(){
-				this.$http.get('/administrador/departamentos').then(function(response){
-					this.$set('departamentos', response.data);
-				});
+		Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector("#token").getAttribute('value');
+		new Vue({
+			//Atributos.
+			el: 'body', //Ambiente de trabajo de Vue.
+			data: {
+				departamentos: [],
 			},
-		}
-	});
+			// Metodos
+			ready: function() {
+				this.getDepartamentos();
+			},
+			methods:{
+				getDepartamentos: function(){
+					this.$http.get('/administrador/departamentos').then(function(response){
+						this.$set('departamentos', response.data);
+					});
+				},
+			}
+		});
 	</script>
 @stop

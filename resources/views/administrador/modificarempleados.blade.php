@@ -30,11 +30,11 @@
 					    <label id="texto">Tipo: </label>
 					</div>
 				  	<div class="input-field col s6">
-						<input type="text" class="validate" name="imss" value="{{$empleados->imss}}">
+						<input onkeypress="return valida(event)" maxlength="11" type="text" class="validate" name="imss" value="{{$empleados->imss}}">
 						<label id="texto"><i class="fa fa-heartbeat"></i>  IMSS: </label>
 				  	</div>
 				  	<div class="input-field col s6">
-						<input type="text" class="validate" name="RFC" required value="{{$empleados->RFC}}">
+						<input maxlength="10" type="text" class="validate" name="RFC" required value="{{$empleados->RFC}}">
 						<label id="texto"><i class="fa fa-list-alt"></i>  RFC: </label>
 				  	</div>
 				  	<div class="input-field col s12">
@@ -42,11 +42,11 @@
 						<label id="texto"><i class="fa fa-home"></i>  Dirección: </label>
 				  	</div>
 				  	<div class="input-field col s6">
-						<input type="text" class="validate" name="telefono" value="{{$empleados->telefono}}">
+						<input onkeypress="return valida(event)" maxlength="7" type="text" class="validate" name="telefono" value="{{$empleados->telefono}}">
 						<label id="texto"><i class="fa fa-phone"></i>  Teléfono: </label>
 				  	</div>
 				  	<div class="input-field col s6">
-						<input type="text" class="validate" name="celular" value="{{$empleados->celular}}">
+						<input onkeypress="return valida(event)" maxlength="10" type="text" class="validate" name="celular" value="{{$empleados->celular}}">
 						<label id="texto"><i class="fa fa-mobile"></i>  Celular: </label>
 				  	</div>
 				  	<div class="input-field col s6">
@@ -58,7 +58,7 @@
 						<label id="texto"><i class="fa fa-key" aria-hidden="true"></i>  Password: </label>
 				  	</div>
 				  	<div class="input-field col s6">
-						<input type="text" class="validate" name="fechaNacimiento" require value="{{$empleados->fechaNacimiento}}">
+						<input maxlength="10" type="text" class="validate" name="fechaNacimiento" require value="{{$empleados->fechaNacimiento}}">
 						<label id="texto"><i class="fa fa-calendar"></i>  Fecha de nacimiento: </label>
 				  	</div>
 				  	<div class="input-field col s6">
@@ -90,4 +90,22 @@
 	</center>
 </div>
 
+@stop
+
+@section('scripts')
+	<script>
+		function valida(e){
+		    tecla = (document.all) ? e.keyCode : e.which;
+
+		    //Tecla de retroceso para borrar, siempre la permite
+		    if (tecla==8){
+		        return true;
+		    }
+		        
+		    // Patron de entrada, en este caso solo acepta numeros
+		    patron =/[0-9]/;
+		    tecla_final = String.fromCharCode(tecla);
+		    return patron.test(tecla_final);
+		}
+	</script>
 @stop

@@ -10,13 +10,14 @@
     @if($route == 'jefe/indexJefe') <?php $route = 'Panel Jefe' ?> @endif
     @if($route == 'jefe/empleados') <?php $route = 'Empleados' ?> @endif
     @if($route == 'acerca/jefe') <?php $route = 'Acerca' ?> @endif
+    @if($route == 'quejasJefe') <?php $route = 'Ver Quejas' ?> @endif
     <title>{{ $route }}</title>
     <?php $route2 = Route::current()->uri(); ?>
     <meta id="token" name="token" value="{{ csrf_token() }}"> <!--Token de VUEJS-->
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
     <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/materialize.min.css"/>
-    <link rel="stylesheet" href="/css/appSoliciTEC2.css"/>
+    <link rel="stylesheet" href="/css/appSoliciTEC3.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!--Para el alert - Para que no de errors-->
     <link rel="stylesheet" href="/css/sweetalert.css">
@@ -30,16 +31,16 @@
 		    	<a href="/jefe/indexJefe" data-activates="mobile-demo" class="button-collapse" style="margin-left: 20px"><i class="fa fa-bars"></i></a>
 		      	<ul id="nav-mobile" class="right hide-on-med-and-down">
 		      		<li class=@if($route2 == 'solicitudes') {{'opcion-activa'}} @endif><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
-                	<li class=@if($route2 == 'quejas') {{'opcion-activa'}} @endif><a href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
-                	<li class=@if($route2 == 'empleados') {{'opcion-activa'}} @endif><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
+                	<li class=@if($route2 == 'quejasJefe') {{'opcion-activa'}} @endif><a href="/quejasJefe"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
+                	<li class=@if($route2 == 'jefe/empleados') {{'opcion-activa'}} @endif><a href="/jefe/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li class=@if($route2 == 'acerca/jefe') {{'opcion-activa'}} @endif><a href="/acerca/jefe"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                     <li><a href="#!">{{ session()->get('jefe')->nombre }}</a></li>
                     <li><a href="/logoutJef" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
 			    <ul class="side-nav" id="mobile-demo">
 			        <li><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
-                	<li><a href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
-                	<li><a href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
+                	<li><a href="/quejasJefe"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
+                	<li><a href="/jefe/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a href="/acerca/jefe"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                     <li><a href="/logoutJef"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
@@ -62,8 +63,8 @@
                 <h5 class="white-text">Enlaces</h5>
                 <ul>
                 	<li><a class="grey-text text-lighten-3" href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
-                	<li><a class="grey-text text-lighten-3" href="/quejas"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
-                	<li><a class="grey-text text-lighten-3" href="/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
+                	<li><a class="grey-text text-lighten-3" href="/quejasJefe"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
+                	<li><a class="grey-text text-lighten-3" href="/jefe/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/acerca/jefe"><i class="fa fa-question-circle"></i>  Acerca</a></li>
                 </ul>
             </div>

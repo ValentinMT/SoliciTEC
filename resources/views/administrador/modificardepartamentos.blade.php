@@ -21,7 +21,7 @@
 						<label id="texto"><i class="fa fa-home"></i>  Nombre: </label>
 				  	</div>
 				  	<div class="input-field col s6">
-						<input type="text" class="validate" name="extension" value="{{$departamentos->extension}}">
+						<input onkeypress="return valida(event)" maxlength="7" type="text" class="validate" name="extension" value="{{$departamentos->extension}}">
 						<label id="texto"><i class="fa fa-phone"></i>  Extensión: </label>
 				  	</div>
 				  	<div class="input-field col s6">
@@ -74,4 +74,22 @@
 	</center>
 </div>
 
+@stop
+
+@section('scripts')
+	<script>
+		function valida(e){
+		    tecla = (document.all) ? e.keyCode : e.which;
+
+		    //Tecla de retroceso para borrar, siempre la permite
+		    if (tecla==8){
+		        return true;
+		    }
+		        
+		    // Patron de entrada, en este caso solo acepta numeros
+		    patron =/[0-9]/;
+		    tecla_final = String.fromCharCode(tecla);
+		    return patron.test(tecla_final);
+		}
+	</script>
 @stop

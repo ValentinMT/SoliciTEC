@@ -21,11 +21,13 @@ class EmpleadosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    /*
     public function index()
     {
         $empleados = InsertarEmpModel::all();
         return view('administrador.empleados', compact('empleados'));
     }
+    */
 
     public function show()
     {
@@ -33,8 +35,10 @@ class EmpleadosController extends Controller
         $empleados=\DB::table('empleado as E')
             ->join('departamento as D', 'E.departamento_clave', '=', 'D.clave')
             ->select('E.clave','E.nombre as NombreE', 'E.tipo', 'E.imss', 'E.RFC', 'E.direccion', 'E.celular', 'E.email', 'D.nombre as NombreD')
-            ->get();
-        return $empleados;
+            //->get();
+            ->paginate('4');
+        //return $empleados;
+        return view('administrador.empleados', compact('empleados'));
     }
 
     public function store(Request $request) {

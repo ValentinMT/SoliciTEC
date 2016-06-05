@@ -1,0 +1,240 @@
+body{
+	background-image: url("/imagenes/fondo-final.jpg"); 
+}
+
+.btn-social{
+	font-size: 20px;
+	margin-left: 20px;
+}
+
+#slider-SoliciTEC, #section{
+	margin-top: 20px;
+}
+
+#form{
+	width: 350px;
+	height: 300px;
+	text-align: center;
+	background-color: #e8f5e9;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-shadow: 7px 7px 7px 0px rgba(0,0,0,0.100);
+	border: 1px solid #a5d6a7;
+	border-radius: 20px;
+}
+
+#registrate{
+	width: 500px;
+	height: 530px;
+	text-align: center;
+	background-color: #e8f5e9;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-shadow: 7px 7px 7px 0px rgba(0,0,0,0.100);
+	border: 1px solid #a5d6a7;
+	margin-bottom: 20px;
+}
+
+#altaempleado{
+	width: 610px;
+	height: 810px !important;
+	text-align: center;
+	background-color: #e8f5e9;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-shadow: 7px 7px 7px 0px rgba(0,0,0,0.100);
+	border: 1px solid #a5d6a7;
+	margin-bottom: 20px;
+}
+
+#altadepartamento{
+	width: 500px;
+	height: 500px;
+	text-align: center;
+	background-color: #e8f5e9;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-shadow: 7px 7px 7px 0px rgba(0,0,0,0.100);
+	border: 1px solid #a5d6a7;
+	margin-bottom: 20px;
+}
+
+#regsolicitud{
+	width: 500px;
+	height: 500px;
+	text-align: center;
+	background-color: #e8f5e9;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-shadow: 7px 7px 7px 0px rgba(0,0,0,0.100);
+	border: 1px solid #a5d6a7;
+	margin-bottom: 20px;
+}
+
+#regqueja{
+	width: 700px;
+	height: 900px;
+	text-align: center;
+	background-color: #e8f5e9;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-shadow: 7px 7px 7px 0px rgba(0,0,0,0.100);
+	border: 1px solid #a5d6a7;
+	margin-bottom: 20px;
+}
+
+#texto, label, th{
+	color: #43a047;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#texto2 {
+	color: #2e7d32;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/*Para cambiar el color de las líneas de los input-field*/
+.input-field input[type=text]:focus{
+    border-bottom: 1px solid #43a047;
+    box-shadow: 0 1px 0 0 #43a047;
+    color: #43a047;
+}
+
+.input-field textarea:focus{
+	border-bottom: 1px solid #43a047;
+    box-shadow: 0 1px 0 0 #43a047;
+    color: #43a047;
+}
+
+.input-field input[type=password]:focus{
+    border-bottom: 1px solid #43a047;
+    box-shadow: 0 1px 0 0 #43a047;
+    color: #43a047;
+}
+
+.input-field input[type=email]:focus{
+    border-bottom: 1px solid #43a047;
+    box-shadow: 0 1px 0 0 #43a047;
+    color: #43a047;
+}
+
+/*Para cambiar el color de la palomita del checkbox*/
+.[type="checkbox"]:checked + label:before {
+  border-right: 3px solid #43a047;
+  border-bottom: 3px solid #43a047;
+}
+
+#boton{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #2e7d32;
+	height: 60px;
+	width: 200px;
+	border-radius: 30px;
+	font-weight: bold;
+	line-height: 55px;
+}
+
+#boton2{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #2e7d32;
+	height: 45px;
+	width: 180px;
+	border-radius: 20px;
+	font-weight: bold;
+	line-height: 40px;
+}
+
+#boton3{
+	background-color: #2e7d32;
+	height: 40px;
+	width: 170px;
+	border-radius: 15px;
+	font-weight: bold;
+	line-height: 35px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#boton4{
+	background-color: #616161;
+	height: 40px;
+	width: 170px;
+	border-radius: 5px;
+	font-weight: bold;
+	line-height: 35px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#titulos{
+	color: #43a047;
+	font-weight: bold;
+	text-align: left;
+	font-size: 40px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#titulos1{
+	color: #2e7d32;
+	font-weight: bold;
+	text-align: left;
+	font-size:20px !important;
+	padding: 0px;
+	margin: 0px;
+}
+
+#titulos2{
+	color: #43a047;
+	font-weight: bold;
+	text-align: left;
+	font-size: 25px;
+}
+
+#parrafo{
+	color: #2e7d32;
+	font-size: 17px;
+}
+
+#buscador{
+	border: 1px solid #a5d6a7;
+	height: 25px;
+	width: 150px;
+	margin: 0px;
+	padding: 0px;
+    box-shadow: 0 1px 0 0 #43a047;
+    color: #2e7d32;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#correcto{
+	color: #2e7d32;
+	font-weight: bold;
+	text-align: center;
+}
+
+.opcion-activa{
+	background-color: #616161;
+}
+
+#imagenQueja{
+	width: 150px !important;
+	height: 100px !important;
+}

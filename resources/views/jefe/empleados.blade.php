@@ -21,13 +21,16 @@
 						EMPLEADOS
 					</h4>
 				</div>
+				<div class="col s6" align=right>
+					<label class="left">Tipo 1: <i>Administrador</i> | Tipo 2: <i>Jefe</i> | Tipo 3: <i>Empleado</i></label>
+				</div>
 			</div>
 			<img src="/imagenes/Sombra.png" class="responsive-img">
-			<div class="col s12" align=left style="margin-left: 14px">
+			<!--<div class="col s12" align=left style="margin-left: 14px">
 				<label id="texto">Buscar por clave de empleado: </label>
 				<input id="buscador" type="text" class="validate">
 				<label><a href="/empleados" id="texto"><i class="fa fa-search"></i> Buscar</a></label>
-			</div>
+			</div>-->
 		</div>
 	</center>
 </section>
@@ -36,8 +39,12 @@
 	<center>
 		<div class="row">
 			<div class="col s12">
-				<img src="/imagenes/Sombra2.png" class="responsive-img">
-				<label class="left">Tipo 1: <i>Administrador</i> | Tipo 2: <i>Jefe</i> | Tipo 3: <i>Empleado</i></label>
+				<!--<img src="/imagenes/Sombra2.png" class="responsive-img">-->
+				<label style="font-size: 25px; color: #43a047;">
+					<b>
+						TOTAL DE EMPLEADOS (@{{empleados.length}})
+					</b>
+				</label>
 				<img src="/imagenes/Sombra2.png" class="responsive-img">
 				<table class="highlight centered responsive-table">
 			        <thead>
