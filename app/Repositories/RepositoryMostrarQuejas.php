@@ -57,4 +57,49 @@ class RepositoryMostrarQuejas
             ->get();
         return $quejas3;
     }
+
+    static function listaQuejasSolicitud($depClave)
+    {
+        $quejaVehiculares=\DB::table('queja')
+            ->select('queja.descripcion','queja.folio')
+            ->where('queja.problema','=','1') 
+            ->where('queja.departamento_clave','=',$depClave)
+            ->get();
+
+        $quejas1=\DB::table('queja')
+            ->select('queja.descripcion','queja.folio')
+            ->where('queja.problema','=','2') 
+            ->where('queja.departamento_clave','=',$depClave)
+            ->get();
+
+        $quejas2=\DB::table('queja')
+            ->select('queja.descripcion','queja.folio')
+            ->where('queja.problema','=','3') 
+            ->where('queja.departamento_clave','=',$depClave)
+            ->get();
+
+        $quejas3=\DB::table('queja')
+            ->select('queja.descripcion','queja.folio')
+            ->where('queja.problema','=','4') 
+            ->where('queja.departamento_clave','=',$depClave)
+            ->get();
+
+        $solicitudes=\DB::table('solicitudes as S')
+            ->join('departamento as D', 'S.dptoDestino', '=', 'D.clave')
+            ->join('esAtendido as eA', 'eA.solicitudes_folio', '=', 'S.folio')
+            ->join('queja as Q', 'Q.folio', '=', 'eA.queja_folio')
+            ->select('S.folio', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre', 'eA.queja_folio', 'Q.descripcion')
+            ->where('Q.departamento_clave', '=', $depClave) 
+            ->get();
+
+        $solicitudes2=\DB::table('solicitudes as S')
+            ->join('departamento as D', 'S.dptoDestino', '=', 'D.clave')
+            ->join('esAtendido as eA', 'eA.solicitudes_folio', '=', 'S.folio')
+            ->join('queja as Q', 'Q.folio', '=', 'eA.queja_folio')
+            ->select('S.folio', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre', 'eA.queja_folio', 'Q.descripcion')
+            ->where('S.dptoDestino', '=', $depClave) 
+            ->get();
+             
+       return compact('quejaVehiculares', 'quejas1', 'quejas2', 'quejas3', 'solicitudes', 'solicitudes2');
+    }
 }

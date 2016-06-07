@@ -85,13 +85,22 @@ class QuejasController extends Controller
         return RepositoryMostrarQuejas::listaQuejasRecibidas($depClave);
     }
 
-    public function destroy($folio) {
+    /*public function destroy($folio) {
         $quejas = InsertarQuejaModel::find($folio);
         $quejas->delete();
         Alert::success('¡ELIMINACIÓN CORRECTA!')->persistent("Cerrar");
         return Redirect::to('/quejas');
         //return view("administrador.quejas");
     }
+
+    public function destroyQuejaJefe($folio) {
+        $quejas = InsertarQuejaModel::find($folio);
+        //dd('FUNCIONA');
+        $quejas->delete();
+        Alert::success('¡ELIMINACIÓN CORRECTA!')->persistent("Cerrar");
+        return Redirect::to('/quejasJefe');
+        //return view("administrador.quejas");
+    }*/
 
     public function detalle(Request $request)
     {

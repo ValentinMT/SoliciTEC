@@ -11,7 +11,7 @@
     <title>{{ $route }}</title>
     <?php $route2 = Route::current()->uri(); ?>
     <link rel="stylesheet" href="/css/materialize.min.css"/>
-	<link rel="stylesheet" href="/css/appSoliciTEC3.css"/>
+	<link rel="stylesheet" href="/css/appSoliciTEC5.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!--Para el alert - Para que no de errors-->
     <link rel="stylesheet" href="/css/sweetalert.css">

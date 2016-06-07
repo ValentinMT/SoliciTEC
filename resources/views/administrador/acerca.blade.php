@@ -28,24 +28,37 @@
 <div id="section" class="container">
 	<div class="row">
 		<div class="col s12" align=justify>
+			<h5 id="titulos2">HISTORIA</h5>
 			<p id="parrafo">
-				Somos una librería independiente dedicada desde hace más de 5 años a ofrecer a todos una amplia selección de títulos.
-				Somos una empresa local comprometida con el desarrollo de nuestra comunidad.
+				El Instituto Tecnológico de Colima (ITCOL) fue fundado el 6 de octubre de 1976 
+				con tres carreras: Ingeniería Industrial en Planeación, Ingeniería Industrial 
+				Eléctrica y la Licenciatura en Administración de Empresas Turísticas en Planeación 
+				y Promoción, con una matrícula total de 62 alumnos y 14 trabajadores, entre directivos, 
+				docentes y administrativos.
+				<br>
+				La creación de un Instituto Tecnológico en Colima, se debió principalmente al propósito 
+				del gobierno federal de establecer una alternativa de formación profesional que impulsara 
+				el desarrollo de la región en las áreas industrial y de servicios. Pero es importante asentar 
+				que gracias al empuje de la juventud colimense ante la necesidad de continuar sus estudios 
+				superiores, un grupo de estudiantes de la carrera de Ingeniería Eléctrica que asistía a la 
+				vecina localidad de Ciudad Guzmán, Jalisco, visitaron al entonces Gobernador del Estado, 
+				pidiéndole que apoyara con su gestión para que Colima tuviera su propio Instituto Tecnológico, 
+				lo cual redundaría en beneficio del estado, el entorno regional y el país en general. 
 			</p>
 
 			<div class="col s6">
 				<h5 id="titulos2">Misión</h5>
 					<p id="parrafo">
-						Satisfacer las exigencias de nuestros clientes y la demanda del mercado en general
-						ofreciendo un precio atractivo y la más alta calidad.
+						Formar seres humanos íntegros con saberes pertinentes y 
+						competencias globales para la transformación armónica de la sociedad. 
 					</p>
 			</div>
 
 			<div class="col s6">
 				<h5 id="titulos2">Visión</h5>
 					<p id="parrafo">
-						Ser una empresa activa comercialmente para así llegar a ser líder en venta de libros,
-						tanto en México como en el extranjero.
+						Ser una institución educativa líder, con ambientes democráticos 
+						a favor del desarrollo sostenible de la humanidad. 
 					</p>
 			</div>
 		</div>

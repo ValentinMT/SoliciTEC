@@ -61,7 +61,7 @@
 			            	<th data-field="departamentoRec">Departamento Receptor</th>
 			            	<th data-field="problema">Tipo de Problema</th>
 			            	<th data-field="info">Información</th>
-			            	<th data-field="eliminar">Eliminar</th>
+			            	<!--<th data-field="eliminar">Eliminar</th>-->
 			        	</tr>
 			        </thead>
 			        <?php
@@ -79,13 +79,13 @@
 			        		<td>{{ $queja->departamento_clave }}</td>
 			        		<td>{{ $queja->problema }}</td>
 			        		<td><a href="#!" v-on:click="mostrar({{$queja->folio}})">Ver detalles</a></td>
-			        		<td>
+			        		<!--<td>
 			            		<center>
 			            			<a href="/eliminarQueja/delete/{{$queja->folio}}">
 			            				<i class="fa fa-trash fa-2x" style="color:#2e7d32;" aria-hidden="true"></i>
 			            			</a>
 			            		</center>
-			            	</td>
+			            	</td>-->
 			        	</tr>
 			        </tbody>
 			        @endforeach

@@ -53,6 +53,9 @@
 						<li v-for="queja2 in quejas2">
 					      	<div class="collapsible-header active"><!--<i class="fa fa-language" aria-hidden="true"></i>-->
 					      		<b>Queja #@{{ queja2.folio }} - Hecha Por: @{{ queja2.empleado_clave }} <i class="fa fa-arrow-down" aria-hidden="true"></i></b>
+					      		<!--<a href="/eliminarQueja/delete/@{{queja2.folio}}">
+			            			<i class="fa fa-trash fa-2x" style="color:#2e7d32;" aria-hidden="true"></i>
+			            		</a>-->
 					      	</div>
 					      	<div class="collapsible-body" align=justify style="padding: 20px;">
 						      	<b>Fecha: </b>@{{ queja2.fechaHora }}
@@ -83,6 +86,9 @@
 						<li v-for="queja3 in quejas3">
 					      	<div class="collapsible-header active"><!--<i class="fa fa-language" aria-hidden="true"></i>-->
 					      		<b>Queja #@{{ queja3.folio }} - Hecha Por: @{{ queja3.empleado_clave }} <i class="fa fa-arrow-down" aria-hidden="true"></i></b>
+					      		<!--<a href="/eliminarQueja/delete/@{{queja3.folio}}">
+			            			<i class="fa fa-trash fa-2x" style="color:#2e7d32;" aria-hidden="true"></i>
+			            		</a>-->
 					      	</div>
 					      	<div class="collapsible-body" align=justify style="padding: 20px;">
 						      	<b>Fecha: </b>@{{ queja3.fechaHora }}

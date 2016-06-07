@@ -23,9 +23,9 @@
 				  	<div class="input-field col s4">
 					    <select name="tipo">
 					      <option value="" disabled selected>Seleccionar...</option>
-					      <option value="1">1 - Administrador</option>
-					      <option value="2">2 - Jefe</option>
-					      <option value="3">3 - Empleado</option>
+					      <option value="1">1. Administrador</option>
+					      <option value="2">2. Jefe</option>
+					      <option value="3">3. Empleado</option>
 					    </select>
 					    <label id="texto">Tipo: </label>
 					</div>
@@ -66,7 +66,7 @@
 					    <select name="departamento_clave">
 					    	<option value="" disabled selected>Seleccionar...</option>
 					    	@foreach($depto as $departamentos)
-						    <option value="{{ $departamentos->clave }}">{{ $departamentos->clave }} - {{ $departamentos->nombre }}</option>
+						    <option value="{{ $departamentos->clave }}">{{ $departamentos->clave }}. {{ $departamentos->nombre }}</option>
 						    @endforeach
 					    </select>
 					    <!--<input type="text" class="validate" name="departamento_clave"required>-->

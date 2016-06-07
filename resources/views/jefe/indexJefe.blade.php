@@ -18,8 +18,8 @@
 	<center>
 		<div class="row">
 			<div class="col s12 l4">
-				<a href="/solicitudes"><img id="section" src="/imagenes/solicitudes.jpg" alt="" class="circle responsive-img z-depth-2"></a>
-				<a href="/solicitudes" id="boton" class="waves-effect waves-light btn-large">SOLICITUDES</a>
+				<a href="/jefe/solicitudes"><img id="section" src="/imagenes/solicitudes.jpg" alt="" class="circle responsive-img z-depth-2"></a>
+				<a href="/jefe/solicitudes" id="boton" class="waves-effect waves-light btn-large">SOLICITUDES</a>
 			</div>
 			<div class="col s12 l4">
 				<a href="/quejasJefe"><img id="section" src="/imagenes/quejas.jpg" alt="" class="circle responsive-img z-depth-2"></a>

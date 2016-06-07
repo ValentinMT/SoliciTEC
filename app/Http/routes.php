@@ -4,11 +4,6 @@ Route::get('/', function () {
     return view('website.index');
 });
 
-Route::get('/solicitudes', function() {
-	return view('website.solicitudes');
-});
-
-
 Route::get('/acerca', function() {
     return view('website.acerca');
 });
@@ -17,10 +12,6 @@ Route::get('/quejas', function() {
     return view('administrador.quejas');
 });
 
-/*Route::get('/departamentos', function() {
-	return view('website.departamentos');
-});*/
-
 Route::get('/acceder', function() {
 	return view('website.acceder');
 });
@@ -28,9 +19,6 @@ Route::get('/acceder', function() {
 Route::get('/registro', function() {
 	return view('website.registro');
 });
-
-
-//Route::post('/empleados', 'EmpleadosController@store');
 
 Route::get('/usuario', function(){
 	$usuario = \DB::table('empleado')->insert([
@@ -81,10 +69,6 @@ Route::get('/acceder', 'LoginController@index');
 
 Route::post('/login', 'LoginController@store');
 
-/*Route::get('/indexAdministrador', function() {
-    return view('administrador.indexAdministrador');
-});*/
-
 Route::group(['middleware' => 'admin'], function() {
     Route::get('/administrador/indexAdministrador', 'Admin_UserController@index');
     Route::get('/logoutAdm', 'Admin_UserController@logout');
@@ -114,16 +98,13 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/administrador/empleados', 'EmpleadosController@show');
 
     Route::get('/quejas', 'QuejasController@show');
-    //Route::get('/administrador/quejas', 'QuejasController@show');
-    Route::get('/eliminarQueja/delete/{folio}', 'QuejasController@destroy');
-
+    //Route::get('/eliminarQueja/delete/{folio}', 'QuejasController@destroy');
     Route::get('/detalle-queja', 'QuejasController@detalle');
 
+    Route::get('/solicitudes', 'SolicitudController@mostrarSolicitudes');
+    //Route::get('/eliminarSolicitud/delete/{folio}', 'SolicitudController@eliminarSolicitud');
+    Route::get('/genPDF/{folio}', 'PrintController@genPDFAdmin');
 });
-
-/*Route::get('/indexJefe', function() {
-    return view('jefe.indexJefe');
-});*/
 
 Route::group(['middleware' => 'jef'], function() { 
     Route::get('/jefe/indexJefe', 'Jefe_UserController@index');
@@ -139,11 +120,21 @@ Route::group(['middleware' => 'jef'], function() {
     Route::get('/quejasJefe', 'QuejasController@quejasJefe');
     Route::get('/jefe/quejas2', 'QuejasController@mostrarQuejasRealizadas');
     Route::get('/jefe/quejas3', 'QuejasController@mostrarQuejasRecibidas');
-});
 
-/*Route::get('/indexEmpleado', function() {
-    return view('empleado.indexEmpleado');
-});*/
+    Route::get('/jefe/solicitudes', 'SolicitudController@index');
+    Route::get('/altasolicitudes', function() {
+        return view('jefe.altasolicitudes');
+    });
+    Route::post('/registrar', 'SolicitudController@store');
+    //Route::get('/pdf', 'PrintController@index');
+    Route::get('/Solicitud-jefe', 'SolicitudController@show');
+
+    //Route::get('/eliminarQueja/delete/{folio}', 'QuejasController@destroyQuejaJefe');
+    Route::get('/eliminarSolicitud/delete/{folio}', 'SolicitudController@destroy');
+
+    Route::get('/genPDFRecibidas/{folio}', 'PrintController@genPDFRecibidas');
+    Route::get('/genPDFRealizadas/{folio}', 'PrintController@genPDFRealizadas');
+});
 
 Route::group(['middleware' => 'emp'], function() { 
     Route::get('/empleado/indexEmpleado', 'Emp_UserController@index');
@@ -155,19 +146,5 @@ Route::group(['middleware' => 'emp'], function() {
 
     Route::get('/empleados/quejas', 'QuejasController@quejasEmp');
     Route::post('/insertarQueja', 'QuejasController@store');
-
-    /*
-    Route::get('/depNombre', function() {
-        $depClave = session()->get('empleado')->departamento_clave;
-        
-        $empleados=\DB::table('empleado as E')
-            ->join('departamento as D', 'E.departamento_clave', '=', 'D.clave')
-            ->distinct()
-            ->select('D.nombre as empleado_departamento_clave')
-            ->where('E.departamento_clave', '=', $depClave)
-            ->get();
-        return $empleados;
-    });
-    */
 	//https://styde.net/sistema-de-autenticacion-de-usuarios-en-laravel/
 });

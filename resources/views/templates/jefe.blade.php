@@ -9,6 +9,8 @@
 	<?php $route = Route::current()->uri(); ?>
     @if($route == 'jefe/indexJefe') <?php $route = 'Panel Jefe' ?> @endif
     @if($route == 'jefe/empleados') <?php $route = 'Empleados' ?> @endif
+    @if($route == 'jefe/solicitudes') <?php $route = 'Ver Solicitudes' ?> @endif
+    @if($route == 'altasolicitudes') <?php $route = 'Realizar Solicitud' ?> @endif
     @if($route == 'acerca/jefe') <?php $route = 'Acerca' ?> @endif
     @if($route == 'quejasJefe') <?php $route = 'Ver Quejas' ?> @endif
     <title>{{ $route }}</title>
@@ -17,7 +19,7 @@
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon"/>
     <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/materialize.min.css"/>
-    <link rel="stylesheet" href="/css/appSoliciTEC3.css"/>
+    <link rel="stylesheet" href="/css/appSoliciTEC5.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!--Para el alert - Para que no de errors-->
     <link rel="stylesheet" href="/css/sweetalert.css">
@@ -30,7 +32,7 @@
 		    	<a href="/jefe/indexJefe" class="brand-logo" style="margin-left: 20px">SoliciTEC  <i class="fa fa-file-text"></i></a>
 		    	<a href="/jefe/indexJefe" data-activates="mobile-demo" class="button-collapse" style="margin-left: 20px"><i class="fa fa-bars"></i></a>
 		      	<ul id="nav-mobile" class="right hide-on-med-and-down">
-		      		<li class=@if($route2 == 'solicitudes') {{'opcion-activa'}} @endif><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
+		      		<li class=@if($route2 == 'jefe/solicitudes') {{'opcion-activa'}} @endif><a href="/jefe/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
                 	<li class=@if($route2 == 'quejasJefe') {{'opcion-activa'}} @endif><a href="/quejasJefe"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
                 	<li class=@if($route2 == 'jefe/empleados') {{'opcion-activa'}} @endif><a href="/jefe/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li class=@if($route2 == 'acerca/jefe') {{'opcion-activa'}} @endif><a href="/acerca/jefe"><i class="fa fa-question-circle"></i>  Acerca</a></li>
@@ -38,7 +40,7 @@
                     <li><a href="/logoutJef" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir"><i class="fa fa-sign-out" aria-hidden="true"></i>  Salir</a></li>
 			    </ul>
 			    <ul class="side-nav" id="mobile-demo">
-			        <li><a href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
+			        <li><a href="/jefe/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
                 	<li><a href="/quejasJefe"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
                 	<li><a href="/jefe/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a href="/acerca/jefe"><i class="fa fa-question-circle"></i>  Acerca</a></li>
@@ -62,7 +64,7 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Enlaces</h5>
                 <ul>
-                	<li><a class="grey-text text-lighten-3" href="/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
+                	<li><a class="grey-text text-lighten-3" href="/jefe/solicitudes"><i class="fa fa-file-text"></i>  Solicitudes</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/quejasJefe"><i class="fa fa-thumbs-down"></i>  Quejas</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/jefe/empleados"><i class="fa fa-users"></i>  Empleados</a></li>
                 	<li><a class="grey-text text-lighten-3" href="/acerca/jefe"><i class="fa fa-question-circle"></i>  Acerca</a></li>
