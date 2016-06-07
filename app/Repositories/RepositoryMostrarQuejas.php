@@ -83,23 +83,32 @@ class RepositoryMostrarQuejas
             ->where('queja.problema','=','4') 
             ->where('queja.departamento_clave','=',$depClave)
             ->get();
+          
+       return compact('quejaVehiculares', 'quejas1', 'quejas2', 'quejas3');
+    }
 
-        $solicitudes=\DB::table('solicitudes as S')
-            ->join('departamento as D', 'S.dptoDestino', '=', 'D.clave')
-            ->join('esAtendido as eA', 'eA.solicitudes_folio', '=', 'S.folio')
-            ->join('queja as Q', 'Q.folio', '=', 'eA.queja_folio')
-            ->select('S.folio', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre', 'eA.queja_folio', 'Q.descripcion')
-            ->where('Q.departamento_clave', '=', $depClave) 
-            ->get();
-
+    static function listaSolicitudesJefe2($depClave)
+    {
         $solicitudes2=\DB::table('solicitudes as S')
             ->join('departamento as D', 'S.dptoDestino', '=', 'D.clave')
             ->join('esAtendido as eA', 'eA.solicitudes_folio', '=', 'S.folio')
-            ->join('queja as Q', 'Q.folio', '=', 'eA.queja_folio')
-            ->select('S.folio', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre', 'eA.queja_folio', 'Q.descripcion')
+            ->select('S.folio', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre')
             ->where('S.dptoDestino', '=', $depClave) 
+            ->distinct('S.folio')
             ->get();
-             
-       return compact('quejaVehiculares', 'quejas1', 'quejas2', 'quejas3', 'solicitudes', 'solicitudes2');
+        return $solicitudes2;
     }
+
+    static function listaSolicitudesJefe($depClave)
+    {
+        $solicitudes=\DB::table('solicitudes as S')
+            ->join('departamento as D', 'S.dptoDestino', '=', 'D.clave')
+            ->join('esAtendido as eA', 'eA.solicitudes_folio', '=', 'S.folio')
+            ->join('empleado as E', 'E.clave', '=', 'S.claveEmp')
+            ->select('S.folio', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre')
+            ->where('E.departamento_clave', '=', $depClave) 
+            ->distinct('S.folio')
+            ->get();
+        return $solicitudes;
+    }  
 }

@@ -114,7 +114,7 @@
       <tr>
         <?php 
           if($insert['problema']=='1') {
-            $var='Vehículares';
+            $var='Vehícular';
           } else if($insert['problema']=='2') {
             $var=' Infraestructura';
           } else if($insert['problema']=='3') {

@@ -130,7 +130,7 @@
       <tr>
         <?php 
           if($solicitudes->problema=='1') {
-            $var='Vehículares';
+            $var='Vehícular';
           } else if($solicitudes->problema=='2') {
             $var=' Infraestructura';
           } else if($solicitudes->problema=='3') {

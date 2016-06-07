@@ -102,7 +102,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/detalle-queja', 'QuejasController@detalle');
 
     Route::get('/solicitudes', 'SolicitudController@mostrarSolicitudes');
-    //Route::get('/eliminarSolicitud/delete/{folio}', 'SolicitudController@eliminarSolicitud');
+    Route::get('/eliminarSolicitudAdmin/delete/{folio}', 'SolicitudController@eliminarSolicitud');
     Route::get('/genPDF/{folio}', 'PrintController@genPDFAdmin');
 });
 
@@ -121,7 +121,7 @@ Route::group(['middleware' => 'jef'], function() {
     Route::get('/jefe/quejas2', 'QuejasController@mostrarQuejasRealizadas');
     Route::get('/jefe/quejas3', 'QuejasController@mostrarQuejasRecibidas');
 
-    Route::get('/jefe/solicitudes', 'SolicitudController@index');
+    Route::get('/jefe/solicitudes', 'SolicitudController@verSolicitudes');
     Route::get('/altasolicitudes', function() {
         return view('jefe.altasolicitudes');
     });
@@ -129,8 +129,11 @@ Route::group(['middleware' => 'jef'], function() {
     //Route::get('/pdf', 'PrintController@index');
     Route::get('/Solicitud-jefe', 'SolicitudController@show');
 
+    //Route::get('/SolicitudesTotal', 'SolicitudController@verSolicitudes');
+
     //Route::get('/eliminarQueja/delete/{folio}', 'QuejasController@destroyQuejaJefe');
-    Route::get('/eliminarSolicitud/delete/{folio}', 'SolicitudController@destroy');
+    Route::get('/cancelarSolicitud/delete/{folio}', 'SolicitudController@marcarCancelada');
+    Route::get('/atenderSolicitud/delete/{folio}', 'SolicitudController@marcarAtendida');
 
     Route::get('/genPDFRecibidas/{folio}', 'PrintController@genPDFRecibidas');
     Route::get('/genPDFRealizadas/{folio}', 'PrintController@genPDFRealizadas');

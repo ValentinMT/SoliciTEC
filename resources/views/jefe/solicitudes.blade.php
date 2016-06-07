@@ -49,7 +49,7 @@
 					<div class="col s12">
 						<label style="font-size: 20px; color: #43a047;">
 							<b>
-								SOLICITUDES RECIBIDAS (@{{solicitudes2.length}})
+								SOLICITUDES RECIBIDAS ({{count($solicitudes2)}})
 							</b>
 						</label>
 					</div>
@@ -64,29 +64,35 @@
 			            	<th>Tipo de Problema</th>
 			            	<th>Urgencia</th>
 			            	<th>Departamento Destino</th>
-			            	<th>Folio Queja</th>
-			            	<th>Descripción de Queja</th>
 			            	<th>Generar PDF</th>
+			            	<th>Atender</th>
 			        	</tr>
 			        </thead>
-			        <tbody v-for="solicitud2 in solicitudes2">
+			        @foreach($solicitudes2 as $solicitud2)
+			        <tbody> <!--<v-for="solicitud2 in solicitudes2">-->
 			        	<tr>
-			        		<td>@{{ solicitud2.folio }}</td>
-			        		<td>@{{ solicitud2.fechaCaptura }}</td>
-			        		<td>@{{ solicitud2.problema }}</td>
-			        		<td>@{{ solicitud2.urgencia }}</td>
-			        		<td>@{{ solicitud2.nombre }}</td>
-			        		<td>@{{ solicitud2.queja_folio }}</td>
-			        		<td>@{{ solicitud2.descripcion }}</td>
+			        		<td>{{ $solicitud2->folio }}</td>
+			        		<td>{{ $solicitud2->fechaCaptura }}</td>
+			        		<td>{{ $solicitud2->problema }}</td>
+			        		<td>{{ $solicitud2->urgencia }}</td>
+			        		<td>{{ $solicitud2->nombre }}</td>
 			        		<td>
 			            		<center>
-			            			<a href="/genPDFRecibidas/@{{ solicitud2.folio }}" target="_blank">
+			            			<a href="/genPDFRecibidas/{{$solicitud2->folio}}" target="_blank">
 			            				<i class="fa fa-file-pdf-o fa-2x" style="color: red; text" aria-hidden="true"></i>
+			            			</a>
+			            		</center>
+			            	</td>
+			            	<td>
+			            		<center>
+			            			<a href="/atenderSolicitud/delete/{{$solicitud2->folio}}">
+			            				<i class="fa fa-check fa-2x" style="color: green;" aria-hidden="true"></i>
 			            			</a>
 			            		</center>
 			            	</td>
 			        	</tr>
 			        </tbody>
+			        @endforeach
 			    </table>
 			</div>
 
@@ -96,7 +102,7 @@
 					<div class="col s12">
 						<label style="font-size: 20px; color: #43a047;">
 							<b>
-								SOLICITUDES REALIZADAS POR <font style="text-transform: uppercase;">{{$nombre}}</font> (@{{solicitudes.length}})
+								SOLICITUDES REALIZADAS POR <font style="text-transform: uppercase;">{{$nombre}}</font> ({{count($solicitudes)}})
 							</b>
 						</label>
 					</div>
@@ -111,37 +117,35 @@
 			            	<th>Tipo de Problema</th>
 			            	<th>Urgencia</th>
 			            	<th>Departamento Destino</th>
-			            	<th>Folio Queja</th>
-			            	<th>Descripción de Queja</th>
 			            	<th>Generar PDF</th>
-			            	<th>Eliminar</th>
+			            	<th>Cancelar</th>
 			        	</tr>
 			        </thead>
-			        <tbody v-for="solicitud in solicitudes">
+			        @foreach($solicitudes as $solicitud)
+			        <tbody> <!--<v-for="solicitud in solicitudes">-->
 			        	<tr>
-			        		<td>@{{ solicitud.folio }}</td>
-			        		<td>@{{ solicitud.fechaCaptura }}</td>
-			        		<td>@{{ solicitud.problema }}</td>
-			        		<td>@{{ solicitud.urgencia }}</td>
-			        		<td>@{{ solicitud.nombre }}</td>
-			        		<td>@{{ solicitud.queja_folio }}</td>
-			        		<td>@{{ solicitud.descripcion }}</td>
+			        		<td>{{ $solicitud->folio }}</td>
+			        		<td>{{ $solicitud->fechaCaptura }}</td>
+			        		<td>{{ $solicitud->problema }}</td>
+			        		<td>{{ $solicitud->urgencia }}</td>
+			        		<td>{{ $solicitud->nombre }}</td>
 			        		<td>
 			            		<center>
-			            			<a href="/genPDFRealizadas/@{{ solicitud.folio }}" target="_blank">
-			            				<i class="fa fa-file-pdf-o fa-2x" style="color: red; text" aria-hidden="true"></i>
+			            			<a href="/genPDFRealizadas/{{$solicitud->folio}}" target="_blank">
+			            				<i class="fa fa-file-pdf-o fa-2x" style="color: red;" aria-hidden="true"></i>
 			            			</a>
 			            		</center>
 			            	</td>
 			        		<td>
 			            		<center>
-			            			<a href="/eliminarSolicitud/delete/@{{solicitud.folio}}">
-			            				<i class="fa fa-trash fa-2x" style="color:#2e7d32;" aria-hidden="true"></i>
+			            			<a href="/cancelarSolicitud/delete/{{$solicitud->folio}}">
+			            				<i class="fa fa-times fa-2x" style="color: red;" aria-hidden="true"></i>
 			            			</a>
 			            		</center>
 			            	</td>
 			        	</tr>
 			        </tbody>
+			        @endforeach
 			    </table>
 			</div>
 		</div>
@@ -150,7 +154,7 @@
 
 @stop
 
-@section('scripts')
+<!--@section('scripts')
 	<script>
 	Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector("#token").getAttribute('value');
 	new Vue({
@@ -167,13 +171,13 @@
 		},
 		methods:{
 			getSolicitudes: function(){
-				this.$http.get('/Solicitud-jefe').then(function(response){
+				this.$http.get('/SolicitudesTotal').then(function(response){
 					this.solicitudes = response.data.solicitudes;
 					//this.$set('solicitudes', response.data);
 				});
 			},
 			getSolicitudes2: function(){
-				this.$http.get('/Solicitud-jefe').then(function(response){
+				this.$http.get('/SolicitudesTotal2').then(function(response){
 					this.solicitudes2 = response.data.solicitudes2;
 					//this.$set('solicitudes', response.data);
 				});
@@ -181,4 +185,4 @@
 		},
 	});
 	</script>
-@stop
+@stop-->

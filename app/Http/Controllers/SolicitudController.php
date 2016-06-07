@@ -21,10 +21,10 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     { 
         return view('jefe.solicitudes');
-    }
+    }*/
 
     public function create()
     {
@@ -62,9 +62,19 @@ class SolicitudController extends Controller
         return RepositoryMostrarQuejas::listaQuejasSolicitud($depClave);
     }
 
+    public function verSolicitudes(Request $request)
+    {
+        $depClave = $request->session()->get('jefe')->departamento_clave;
+        $solicitudes = RepositoryMostrarQuejas::listaSolicitudesJefe($depClave);
+        $solicitudes2 = RepositoryMostrarQuejas::listaSolicitudesJefe2($depClave);
+        
+        return view('jefe.solicitudes', compact('solicitudes','solicitudes2'));
+    }
+
     public function mostrarSolicitudes()
     {
-        return RepositorySolicitud::listaQuejasSolicitudesAdmin();
+        $solicitudes = RepositorySolicitud::listaQuejasSolicitudesAdmin();
+        return view('administrador.solicitudesAdmin', compact('solicitudes'));
     }
 
     public function update(Request $request, $id)
@@ -72,19 +82,26 @@ class SolicitudController extends Controller
         //
     }
 
-    public function destroy($folio)
+    public function marcarAtendida($folio)
     {
         $soliciudes = InsertarSolicitudModel::find($folio);
         $soliciudes->delete();
-        Alert::success('¡ELIMINACIÓN CORRECTA!')->persistent("Cerrar");
+        Alert::success('¡ATENDIDA!')->persistent("Cerrar");
+        return Redirect::to('/jefe/solicitudes');
+    }
+    public function marcarCancelada($folio)
+    {
+        $soliciudes = InsertarSolicitudModel::find($folio);
+        $soliciudes->delete();
+        Alert::success('¡CANCELACIÓN CORRECTA!')->persistent("Cerrar");
         return Redirect::to('/jefe/solicitudes');
     }
 
-    /*public function eliminarSolicitud($folio)
+    public function eliminarSolicitud($folio)
     {
         $soliciudes = InsertarSolicitudModel::find($folio);
         $soliciudes->delete();
         Alert::success('¡ELIMINACIÓN CORRECTA!')->persistent("Cerrar");
         return Redirect::to('/solicitudes');
-    }*/
+    }
 }

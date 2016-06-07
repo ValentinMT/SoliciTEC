@@ -23,15 +23,21 @@ class RepositorySolicitud
 
 	static function listaQuejasSolicitudesAdmin()
 	{
-        $solicitudes=\DB::table('solicitudes as S')
+        /*$solicitudes=\DB::table('solicitudes as S')
             ->join('departamento as D', 'S.dptoDestino', '=', 'D.clave')
             ->join('esAtendido as eA', 'eA.solicitudes_folio', '=', 'S.folio')
             ->join('queja as Q', 'Q.folio', '=', 'eA.queja_folio')
             ->join('empleado as E', 'E.clave', '=', 'S.claveEmp')
             ->select('S.folio', 'E.nombre as nombreEmp', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre as nombreDpto', 'eA.queja_folio', 'Q.descripcion')
-            //->get();
-        	->paginate('4');
-        //return $solicitudes;   
-        return view('administrador.solicitudesAdmin', compact('solicitudes'));
+        	->paginate('4');  
+        return view('administrador.solicitudesAdmin', compact('solicitudes'));*/
+        $solicitudes=\DB::table('solicitudes as S')
+            ->join('departamento as D', 'S.dptoDestino', '=', 'D.clave')
+            ->join('esAtendido as eA', 'eA.solicitudes_folio', '=', 'S.folio')
+            ->join('empleado as E', 'E.clave', '=', 'S.claveEmp')
+            ->select('S.folio', 'E.nombre as nombreEmp', 'S.fechaCaptura', 'S.problema', 'S.urgencia', 'D.nombre as nombreDpto')
+            ->distinct('S.folio')
+            ->get();
+        return $solicitudes;
 	}
 }

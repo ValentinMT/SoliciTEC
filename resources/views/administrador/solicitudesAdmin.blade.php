@@ -57,9 +57,8 @@
 			            	<th>Tipo de Problema</th>
 			            	<th>Urgencia</th>
 			            	<th>Departamento Destino</th>
-			            	<th>Folio Queja</th>
-			            	<th>Descripción de Queja</th>
 			            	<th>Generar PDF</th>
+			            	<th>Eliminar</th>
 			        	</tr>
 			        </thead>
 			        <?php
@@ -75,12 +74,17 @@
 			        		<td>{{ $solicitud->problema }}</td>
 			        		<td>{{ $solicitud->urgencia }}</td>
 			        		<td>{{ $solicitud->nombreDpto }}</td>
-			        		<td>{{ $solicitud->queja_folio }}</td>
-			        		<td>{{ $solicitud->descripcion }}</td>
 			        		<td>
 			            		<center>
 			            			<a href="/genPDF/{{$solicitud->folio}}" target="_blank">
 			            				<i class="fa fa-file-pdf-o fa-2x" style="color: red; text" aria-hidden="true"></i>
+			            			</a>
+			            		</center>
+			            	</td>
+			            	<td>
+			            		<center>
+			            			<a href="/eliminarSolicitudAdmin/delete/{{$solicitud->folio}}">
+			            				<i class="fa fa-trash fa-2x" style="color:#2e7d32;" aria-hidden="true"></i>
 			            			</a>
 			            		</center>
 			            	</td>
@@ -89,9 +93,6 @@
 			        @endforeach
 			    </table>
 			    <img src="/imagenes/Sombra2.png" class="responsive-img">
-			    <center>
-					{!! $solicitudes->render() !!}
-				</center>
 			</div>
 		</div>
 	</center>
