@@ -36,8 +36,14 @@
 				  	<div class="input-field col s4">
 				  		<?php
 				  			$depClave = session()->get('empleado')->departamento_clave;
+				  			$nom=\DB::table('empleado as E')
+					            ->join('departamento as D', 'E.departamento_clave', '=', 'D.clave')
+					            ->where('D.clave', '=', $depClave)
+					            ->select('D.nombre')
+					            ->first();
 				  		?>
-						<input type="text" name="empleado_departamento_clave" value="{{$depClave}}" readonly="readonly">
+				  		<input type="hidden" name="empleado_departamento_clave" value="{{$depClave}}">
+						<input type="text" value="{{$depClave}}. {{$nom->nombre}}" readonly="readonly">
 						<label id="texto">Departamento origen:</label>
 				  	</div>
 				  	<div class="input-field col s12">
@@ -47,10 +53,10 @@
 				  	<div class="input-field col s6">
 				  		<select name="problema">
 				  			<option value="" disabled selected>Seleccionar...</option>
-							<option value="1">1 - Vehícular</option>
-							<option value="2">2 - Infraestructura</option>
-							<option value="3">3 - Áreas verdes</option>
-							<option value="4">4 - Mantenimiento</option>
+							<option value="1">1. Vehícular</option>
+							<option value="2">2. Infraestructura</option>
+							<option value="3">3. Áreas verdes</option>
+							<option value="4">4. Mantenimiento</option>
 						</select>
 						<label id="texto">Tipo de Problema:</label>
 				  	</div>
@@ -59,7 +65,7 @@
 					    <select name="departamento_clave">
 					    	<option value="" disabled selected>Seleccionar...</option>
 					    	@foreach($depto as $departamentos)
-						    <option value="{{ $departamentos->clave }}">{{ $departamentos->clave }} - {{ $departamentos->nombre }}</option>
+						    <option value="{{ $departamentos->clave }}">{{ $departamentos->clave }}. {{ $departamentos->nombre }}</option>
 						    @endforeach
 					    </select>
 					    <!--<input type="text" class="validate" name="departamento_clave"required>-->
